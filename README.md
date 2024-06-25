@@ -59,4 +59,4 @@ Application will be running on port 8080.
 - It will auto-build the project; if not, open pom.xml, right-click, and press maven->reload project.
 - Then run the application.
 - Application will be running on port 8080.
-- Run database scripts manually [Path: src/main/resources/scripts/*]
+- Add users using **/user** route
