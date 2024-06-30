@@ -21,7 +21,7 @@ public class User {
     private String password;
 
     @Column(name = "roles", nullable = false)
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
     @Column(name = "active", nullable = false)

@@ -6,11 +6,16 @@ The motivation behind these episodes is to explore spring security in spring boo
 
 ## Project Description
 
-This project is an example of **JPA Authentication** and **Authorization** using spring security.
-In this version of spring security, **WebSecurityConfigurerAdapter** is deprecated.
-Authorization is done by **Form Login**.
+This project is an example of **JWT Authentication and Authorization** using spring security. 
+We fetch users from database (MySQL) using JPA. In this version of spring security, **WebSecurityConfigurerAdapter** is deprecated.
 
-Authentication Manager <-> Authentication Provider <-> UserDetailService <-> JPA <-> DB 
+## The flow of the project is as follows: 
+
+- HTTP request sent to **JwtAuthFilter**
+- **JwtAuthFilter** checks if request has JWT token, if not then return 403
+- **JwtAuthFilter** extract claim from JWT token (email) and fetch user from UserDetailService.loadUserByName(), if user is not found then return 403
+- **JwtAuthFilter** checks JWT is expired by using **JwtService**, if expired then return 403 
+- Then update the SecurityContextHolder and DispatcherServlet send request to controller.
 
 I have made 2 users:
 

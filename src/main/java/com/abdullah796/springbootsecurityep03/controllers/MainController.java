@@ -4,7 +4,9 @@ import com.abdullah796.springbootsecurityep03.persistence.models.User;
 import com.abdullah796.springbootsecurityep03.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,11 +24,6 @@ public class MainController {
     @GetMapping("/users")
     public List<User> getUsers() {
         return userService.findAll();
-    }
-
-    @PostMapping("/user")
-    public User saveUser(@RequestBody User user) {
-        return userService.save(user);
     }
 
     @GetMapping("/user/{id}")
